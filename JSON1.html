@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON1</title>
+</head>
+<body>
+<script>
+var requestURL ="https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
+var request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType="json";
+request.send();
+request.onload = function(){
+    var superHeroes = request.response;
+    document.write("<h1>"+superHeroes["squadName"]+"<br>"+superHeroes["homeTown"]+"<br> Formed in "+superHeroes["formed"]+"<br>"+superHeroes["secretBase"]+"</h1>");
+    document.write("<br><br>Members: "+"<br>"+superHeroes["members"][0]["name"]+"<br>Age: "+superHeroes["members"][0]["age"]+"<br>Secret Identity"+superHeroes["members"][0]["secretIdentity"]+"<br>"+superHeroes["members"][0]["powers"][0]+"<br>"+superHeroes["members"][0]["powers"][1]+"<br>"+superHeroes["members"][0]["powers"][2]+"<br>");
+    document.write("<br><br>"+"<br>"+superHeroes["members"][1]["name"]+"<br>Age: "+superHeroes["members"][1]["age"]+"<br>Secret Identity"+superHeroes["members"][1]["secretIdentity"]+"<br>"+superHeroes["members"][1]["powers"][0]+"<br>"+superHeroes["members"][1]["powers"][1]+"<br>"+superHeroes["members"][1]["powers"][2]+"<br>");
+    document.write("<br><br>"+"<br>"+superHeroes["members"][2]["name"]+"<br>Age: "+superHeroes["members"][2]["age"]+"<br>Secret Identity"+superHeroes["members"][2]["secretIdentity"]+"<br>"+superHeroes["members"][2]["powers"][0]+"<br>"+superHeroes["members"][2]["powers"][1]+"<br>"+superHeroes["members"][2]["powers"][2]+"<br>"+superHeroes["members"][2]["powers"][3]+"<br>"+superHeroes["members"][2]["powers"][4]);
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strings4</title>
+</head>
+<body>
+<script>
+    function triple(string){
+        var i;
+        var count=0;
+        var arr = Array.from(string);
+        for (i=0; i<arr.length-1;i++){
+            if (arr[i]===arr[i+1]&& arr[i]===arr[i+2]){
+                count=parseInt(count)+1;
+            }
+        }
+        console.log(count);
+    }
+</script>
+
+<input type="text" id="string">
+
+<input type="button" onclick="triple(document.getElementById('string').value)" value="Check for triples">
+</body>
+</html>

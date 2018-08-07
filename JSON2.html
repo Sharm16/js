@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON2</title>
+</head>
+<body>
+<script>
+    var requestURL ="https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json";
+    var request = new XMLHttpRequest();
+    request.open("GET", requestURL);
+    request.responseType="json";
+    request.send();
+    request.onload = function() {
+        var kings = request.response;
+    }
+
+function filter(name,city,house,years) {
+    var kings = request.response;
+    var results = [];
+    if (!(name = "")) {
+    for (var i = 0; i < kings.length; i++) {
+        if (kings[i]["nm"].includes(name)) {
+            results.push(kings[i]);
+        }
+    }
+}
+    if (!(city = "")) {
+    for (var i = 0; i < kings.length; i++) {
+        if (kings[i]["cty"].includes(city)) {
+            results.push(kings[i]);
+        }
+    }}
+    if (!(house = "")) {
+    for (var i = 0; i < kings.length; i++) {
+        if (kings[i]["hse"].includes(house)) {
+            results.push(kings[i]);
+        }
+    }}
+    if (!(years = "")) {
+    for (var i = 0; i < kings.length; i++) {
+        if (kings[i]["yrs"].includes(years)) {
+            results.push(kings[i]);
+        }
+    }}
+    document.write('<br>'+"<input type='button' value='Back' onclick='window.location.reload(true);'><br><br>'");
+    for (var i = 0; i < results.length; i++) {
+        document.write("Name: "+results[i]["nm"]+"<br>"+"City: "+results[i]["cty"]+"<br>"+"House: "+results[i]["hse"]+"<br>"+"Years: "+results[i]["yrs"])
+    }
+
+
+}
+</script>
+
+<input type="text" id="searchnm" placeholder="Search by Name">
+<input type="text" id="searchcty" placeholder="Search by Area">
+<input type="text" id="searchhse" placeholder="Search by House">
+<input type="text" id="searchyrs" placeholder="Search by Years">
+
+<input type="button" onclick="filter(document.getElementById('searchnm').value,document.getElementById('searchcty').value,document.getElementById('searchhse').value,document.getElementById('searchyrs').value)" value="filter">
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom1</title>
+</head>
+<body>
+<p>Click the button to create a P element with some text.</p>
+
+<button onclick="myFunction(document.getElementById('input').value)">create</button>
+<button onclick="deletep()">delete</button>
+
+<script>
+
+var count =0;
+    function myFunction(input) {
+        count++;
+        var para = document.createElement("P");
+        para.setAttribute("id", "p"+count);
+        var text = document.createTextNode(input);
+        para.appendChild(text);
+        document.body.appendChild(para);
+
+
+    }
+    function deletep() {
+        document.getElementById("p" + count).innerHTML = "  ";
+
+        count--;
+    }
+</script>
+<input type="text" id="input">
+
+</body>
+</html>

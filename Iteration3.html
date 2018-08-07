@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration2</title>
+</head>
+<body>
+<script>
+    function update(number,output3,output5){
+    for (i = 1; i-1 <= number; i++) {
+        if ((i % 15)==0) {
+
+            document.write(output3+output5+ "<br>");
+        }
+       else if ((i % 3)==0) {
+
+            document.write(output3+ "<br>");
+        }
+       else if ((i % 5)==0) {
+
+            document.write(output5+ "<br>");
+        }
+        else {
+            document.write(i+ "<br>");
+        }
+    }}
+</script>
+</body>
+<input type="number" id="number">
+<input type="text" id="output3">
+<input type="text" id="output5">
+<input type="button" onclick="update(document.getElementById('number').value,document.getElementById('output3').value,document.getElementById('output5').value)" value="update">
+</html>
